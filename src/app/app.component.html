@@ -1,27 +1,22 @@
-
 <!-- <p>List</p>
 <ul *ngFor="let item of PersonList">
         <li>{{item.name}}</li>
 </ul> -->
 
 <div class="container">
-        <form  #personForm="ngForm">
+        <form #personForm="ngForm">
                 <div class="from-group">
                         <label>Name</label>
-                        <input type="text" class="form-control"id="name"  name="name"  placeholder="enter you name"
-                         required  maxlength="10"
-                         [(ngModel)]="person.name"  #name="ngModel" >
-                        
-                        <div [hidden]="name.valid || name.pristine"
-                                class="alert alert-danger">
-                                 Name is required
+                        <input type="text" class="form-control" id="name" name="name" placeholder="enter you name" required maxlength="10" [(ngModel)]="person.name"
+                                #name="ngModel">
+
+                        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                                Name is required
                         </div>
                 </div>
                 <div class="from-group">
                         <label>Age</label>
-                        <input type="text" name="id" id="age" 
-                         class="form-control" placeholder="enter your age" 
-                        [(ngModel)]="person.age">
+                        <input type="text" name="id" id="age" class="form-control" placeholder="enter your age" [(ngModel)]="person.age">
                 </div>
                 <div class="from-group">
                         <label>Gender</label>
@@ -30,11 +25,17 @@
                         </select>
                 </div>
                 <div class="from-group">
-                        <button type="submit" class="btn btn-success"
-                        (click)="newHero(); personForm.reset()" 
-                        >New Person</button>
+                        <button type="submit" class="btn btn-success" (click)="newHero(); personForm.reset()">New Person</button>
                 </div>
 
-              
+
         </form>
+
+
+        <ul *ngFor="let item of str" class="list-group">
+                <li class="list-group-item">
+                        {{item.name}}
+                </li>
+        </ul>
+
 </div>

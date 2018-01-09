@@ -10,49 +10,33 @@ import { Http } from '@angular/http';
 
 
 export class AppComponent {
-  constructor(private http:Http){
+  constructor(private http: Http) { }
+  str: Object = "";
 
-  }
+  ngOnInit() {
+    this.getData();
+  };
 
-  ngOninit(){
- this.getData();
-  }
-
-getData(){
-var headers=new Headers();
-headers.append('Content-Type', 'application/json');
-headers.append('Access-Control-Allow-Origin','*');
-headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-headers.append(  'Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-headers.append('Access-Control-Allow-Credentials', 'true' );
-
-  this.http.get('http://localhost:64257/api/values/getList')
-  .map(res => res.text())
-  .subscribe( 
-  data=>data, 
-  err=>console.log(err),
-  () => console.log('Random Quote Complete')
-);
-}
-
-// sendData(data){
-//   var headers = new Headers();
-//   headers.append('Content-Type', 'application/x-www-form-urlencoded');
-//   this.http.post('','',)
-// }
+  getData() {
+    this.http.get('http://localhost:64257/api/values/getList')
+      .map(res => res.json())
+      .subscribe(
+      data => this.str = data,
+    );
+  };
 
 
-  gender=['male','female','unknow']
+  gender = ['male', 'female', 'unknow']
 
-  person=new Person(1,'Malik',18,this.gender[0],"");
+  person = new Person(1, 'Malik', 18, this.gender[0], "");
 
-  submitted=false;
+  submitted = false;
 
   newHero() {
-    this.getData();
-   
-  this.submitted=true;
-  this.person = new Person(0, '',0, this.gender[0],'');
+    var result = this.getData();
+
+    this.submitted = true;
+    this.person = new Person(0, '', 0, this.gender[0], '');
   }
 
 }
