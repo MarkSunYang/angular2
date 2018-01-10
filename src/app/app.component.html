@@ -1,41 +1,27 @@
-<!-- <p>List</p>
-<ul *ngFor="let item of PersonList">
-        <li>{{item.name}}</li>
-</ul> -->
-
 <div class="container">
-        <form #personForm="ngForm">
-                <div class="from-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="enter you name" required maxlength="10" [(ngModel)]="person.name"
-                                #name="ngModel">
+        <div class="menu">
+                <ul>
+                        <li>
+                                <a [routerLink]="['/']">Home</a>
+                        </li>
 
-                        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-                                Name is required
-                        </div>
-                </div>
-                <div class="from-group">
-                        <label>Age</label>
-                        <input type="text" name="id" id="age" class="form-control" placeholder="enter your age" [(ngModel)]="person.age">
-                </div>
-                <div class="from-group">
-                        <label>Gender</label>
-                        <select [(ngModel)]="person.sex" class="form-control" name="person.sex">
-                                <option *ngFor="let item of gender" [value]="item">{{item}}</option>
-                        </select>
-                </div>
-                <div class="from-group">
-                        <button type="submit" class="btn btn-success" (click)="newHero(); personForm.reset()">New Person</button>
-                </div>
-
-
-        </form>
-
-
-        <ul *ngFor="let item of str" class="list-group">
-                <li class="list-group-item">
-                        {{item.name}}
-                </li>
-        </ul>
+                        <li>
+                                <a [routerLink]="['/about']">about</a>
+                        </li>
+                        <li>
+                                <a [routerLink]="['/personinfo/add']">add</a>
+                        </li>
+                       
+                        <li>
+                                <a [routerLink]="['/personinfo/list']">list</a>
+                        </li>
+                        <li>
+                                <a [routerLink]="['/personinfo/edit']">edit</a>
+                        </li>
+                </ul>
+        </div>
 
 </div>
+<router-outlet>
+
+</router-outlet>

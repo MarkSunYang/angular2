@@ -14,7 +14,7 @@ export class AppComponent {
   str: Object = "";
 
   ngOnInit() {
-    this.getData();
+    //this.getData();
   };
 
   getData() {

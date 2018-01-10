@@ -1,0 +1,22 @@
+<table class="table">
+  <caption>Poeple List</caption>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let item of peopleList">
+      <td>{{item.name}}</td>
+      <td>{{item.age}}</td>
+      <td>
+        <a [routerLink]="['/personinfo/detail',item.id]" class="btn btn-primary">detail</a>
+        <a [routerLink]="['/personinfo/edit']" class="btn btn-primary">edit</a>
+      </td>
+   
+    </tr>
+
+  </tbody>
+</table>

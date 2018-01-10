@@ -8,24 +8,26 @@ import { AppComponent } from './app.component';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { RouterModule, Routes } from '@angular/router';
-import { AddComponent } from './PersonInfo/add/add.component';
+import { AddComponent } from './personinfo/add/add.component';
 
-const appRoutes: Routes = [
-  { path: '', component: AppComponent }
-  
-];
-
+import { CommonModule } from '@angular/common';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+import { routes } from './app.routes';
 @NgModule({
   
   declarations: [
     AppComponent,
-    
+    AboutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    CommonModule,
+    RouterModule.forRoot(routes)
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
